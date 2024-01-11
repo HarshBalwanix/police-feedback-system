@@ -1,6 +1,9 @@
+"use client";
 import React from "react";
 // import "./App.css";
 import Image from "next/image";
+import Chatbot from "@/Components/Chatbot";
+
 // import { Outlet, Link } from "react-router-dom";
 
 export default function Home() {
@@ -38,6 +41,7 @@ export default function Home() {
           </div>
         </main>
       </body>
+      <Chatbot />
     </>
   );
 }
