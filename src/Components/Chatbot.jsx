@@ -31,16 +31,14 @@ const Chatbot = (props) => {
         recognitionEnable={true}
         recognitionLang={lang}
         speechSynthesis={{ enable: true, lang: { lang } }}
-        headerTitle="Friendly Bot"
+        headerTitle="AutoFeedback Bot"
         steps={[
           {
             id: "start",
             component: (
               <CustomOptions
                 lang={lang}
-                options={[
-                  { value: 1, label: "Start Conversation", trigger: "0" },
-                ]}
+                options={[{ value: 1, label: "Give Feedback", trigger: "0" }]}
               />
             ),
             asMessage: true,
@@ -54,41 +52,38 @@ const Chatbot = (props) => {
               />
             ),
             asMessage: true,
-            trigger: "1",
-          },
-          {
-            id: "1",
-            component: (
-              <Translator text="Please Enter your Name" targetLang={lang} />
-            ),
-            asMessage: true,
-            trigger: "2",
-          },
-          {
-            id: "2",
-            user: true,
-            trigger: "3",
-          },
-          {
-            id: "3",
-            component: (
-              <Translator text="Enter Your Aadhar Number" targetLang={lang} />
-            ),
-            asMessage: true,
-            trigger: "4",
-          },
-          {
-            id: "4",
-            user: true,
             trigger: "5",
           },
+          // {
+          //   id: "1",
+          //   component: (
+          //     <Translator text="Please Enter your Name" targetLang={lang} />
+          //   ),
+          //   asMessage: true,
+          //   trigger: "2",
+          // },
+          // {
+          //   id: "2",
+          //   user: true,
+          //   trigger: "3",
+          // },
+          // {
+          //   id: "3",
+          //   component: (
+          //     <Translator text="Enter Your Aadhar Number" targetLang={lang} />
+          //   ),
+          //   asMessage: true,
+          //   trigger: "4",
+          // },
+          // {
+          //   id: "4",
+          //   user: true,
+          //   trigger: "5",
+          // },
           {
             id: "5",
             component: (
-              <Translator
-                text="Enter the area where the incident occured"
-                targetLang={lang}
-              />
+              <Translator text="Enter Police Station Name" targetLang={lang} />
             ),
             asMessage: true,
             trigger: "6",
@@ -112,14 +107,14 @@ const Chatbot = (props) => {
           {
             id: "8",
             user: true,
-            trigger: "9",
-          },
-          {
-            id: "9",
-            component: <Translator text="Thank You!" targetLang={lang} />,
-            asMessage: true,
             trigger: "10",
           },
+          // {
+          //   id: "9",
+          //   component: <Translator text="Thank You!" targetLang={lang} />,
+          //   asMessage: true,
+          //   trigger: "10",
+          // },
           {
             id: "10",
             component: (
@@ -217,24 +212,26 @@ const Chatbot = (props) => {
               />
             ),
             asMessage: true,
-            trigger: "ch",
+            trigger: "end",
           },
-          {
-            id: "ch",
-            component: (
-              <CustomOptions
-                lang={lang}
-                options={[
-                  { value: 1, label: "Provide Another Feedback", trigger: "1" },
-                  { value: 2, label: "Quit", trigger: "end" },
-                ]}
-              />
-            ),
-            asMessage: true,
-          },
+          // {
+          //   id: "ch",
+          //   component: (
+          //     <CustomOptions
+          //       lang={lang}
+          //       options={[
+          //         { value: 1, label: "Provide Another Feedback", trigger: "1" },
+          //         { value: 2, label: "Quit", trigger: "end" },
+          //       ]}
+          //     />
+          //   ),
+          //   asMessage: true,
+          // },
           {
             id: "end",
-            component: <Translator text="Byee!!" targetLang={lang} />,
+            component: (
+              <Translator text="Have a good day!!" targetLang={lang} />
+            ),
             asMessage: true,
             end: true,
           },
