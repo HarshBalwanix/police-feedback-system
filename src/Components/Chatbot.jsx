@@ -212,8 +212,20 @@ const Chatbot = (props) => {
               />
             ),
             asMessage: true,
+            trigger: "ab",
+          },
+          {
+            id: "ab",
+            component: <Translator text="Any suggestions?" targetLang={lang} />,
+            asMessage: true,
+            trigger: "ac",
+          },
+          {
+            id: "ac",
+            user: true,
             trigger: "end",
           },
+
           // {
           //   id: "ch",
           //   component: (
