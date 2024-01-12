@@ -1,0 +1,28 @@
+import React, { useState } from "react";
+
+const StarRating = ({ onChange }) => {
+  const [rating, setRating] = useState(0);
+
+  const handleClick = (selectedRating) => {
+    setRating(selectedRating);
+    onChange(selectedRating);
+  };
+
+  return (
+    <div className="flex items-center space-x-1">
+      {[1, 2, 3, 4, 5].map((star) => (
+        <span
+          key={star}
+          className={`text-2xl ${
+            star <= rating ? "text-yellow-500" : "text-gray-300"
+          } cursor-pointer transition duration-300 ease-in-out hover:text-yellow-500`}
+          onClick={() => handleClick(star)}
+        >
+          &#9733;
+        </span>
+      ))}
+    </div>
+  );
+};
+
+export default StarRating;
