@@ -6,11 +6,11 @@ function Feedback() {
   return (
     <>
       <main className="container mx-auto p-4">
-        <div className="bg-white p-8 max-w-md mx-auto rounded-md shadow-md">
+        <div className="bg-white p-8 max-w-xl mx-auto rounded-md shadow-md">
           <div className="text-3xl font-bold mb-4 text-green-500">
             Feedback Form
           </div>
-          <form className="max-w-md mx-auto">
+          <form className="max-w-full">
             <div className="mb-4">
               <label
                 htmlFor="name"
@@ -200,13 +200,14 @@ function Feedback() {
                 onChange={(rating) => console.log("Selected Rating:", rating)}
               />
             </div>
-
-            <button
-              type="submit"
-              className="btn btn-primary bg-blue-500 text-white px-4 py-2 rounded"
-            >
-              Submit
-            </button>
+            <div className="flex items-center">
+              <button
+                type="submit"
+                className=" border-2 border-green-500  text-green-500 px-4 py-2 rounded mx-auto hover:bg-green-500 hover:text-white"
+              >
+                Submit
+              </button>
+            </div>
           </form>
         </div>
       </main>
