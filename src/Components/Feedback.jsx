@@ -5,8 +5,8 @@ import StarRating from "./StarRating";
 function Feedback() {
   return (
     <>
-      <main className="container mx-auto p-4">
-        <div className="bg-white p-8 max-w-xl mx-auto rounded-md shadow-md">
+      <main className="container mx-auto p-4 ">
+        <div className="bg-white p-8 max-w-xl mx-auto rounded-md shadow-md  ">
           <div className="text-3xl font-bold mb-4 text-green-500">
             Feedback Form
           </div>
@@ -21,7 +21,7 @@ function Feedback() {
               <input
                 autoFocus
                 type="text"
-                className="form-input w-full under-label bg-gray-100"
+                className="form-input w-full under-label bg-gray-100 p-1"
                 id="name"
                 name="name"
                 required
@@ -37,7 +37,7 @@ function Feedback() {
               </label>
               <input
                 type="text"
-                className="form-input w-full under-label bg-gray-100"
+                className="form-input w-full under-label bg-gray-100 p-1"
                 id="officerName"
                 name="officerName"
                 aria-describedby="officerNameHelp"
@@ -55,7 +55,7 @@ function Feedback() {
                 Satisfaction with Interaction (Out of 5)
               </label>
               <select
-                className="form-select w-full bg-gray-100"
+                className="form-select w-full bg-gray-100 p-1"
                 id="satisfaction"
                 name="satisfaction"
                 required
@@ -182,7 +182,7 @@ function Feedback() {
                 Any Suggestions?
               </label>
               <textarea
-                className="form-textarea w-full bg-gray-100"
+                className="form-textarea w-full bg-gray-100 p-1"
                 id="suggestions"
                 name="suggestions"
                 rows="3"
@@ -194,7 +194,7 @@ function Feedback() {
                 htmlFor="overallRating"
                 className="block text-sm font-semibold mb-2"
               >
-                Overall Service Rating (Out of 5)
+                Overall Experience Rating (Out of 5)
               </label>
               <StarRating
                 onChange={(rating) => console.log("Selected Rating:", rating)}
