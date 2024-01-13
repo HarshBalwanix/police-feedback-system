@@ -12,7 +12,7 @@ export default function Home() {
       <body>
         <nav className="bg-white text-center py-5 flex flex-wrap justify-center gap-4 sticky top-0">
           <div>
-            <Image src={"/logo.png"} width={50} height={50} />
+            <Image src={"/logo.png"} width={50} height={50} alt="not found" />
           </div>
           <div>
             <h1 className="text-green-500 text-5xl text">Rajasthan Police</h1>

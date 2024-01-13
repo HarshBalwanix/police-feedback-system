@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+
 import { IoIosSearch, IoMdClose } from "react-icons/io";
 import { SlMenu } from "react-icons/sl";
 import { FaUser } from "react-icons/fa";
 import { RxCross1 } from "react-icons/rx";
 
-const Header = () => {
+const Header = (options) => {
   const [menuVisible, setMenuVisible] = useState(false);
   const [searchVisible, setSearchVisible] = useState(false);
 
@@ -26,6 +27,7 @@ const Header = () => {
     setSearchVisible(false);
   };
 
+  console.log(options.options);
   return (
     <>
       <header className="header fixed top-0 left-0 w-full bg-body-color shadow-md z-10">
@@ -56,38 +58,18 @@ const Header = () => {
                 menuVisible ? "show-menu" : ""
               }`}
             >
-              <li className="nav__item">
-                <Link
-                  href="#"
-                  className="nav__link hover:text-green-500 hover:font-bold"
-                >
-                  Home
-                </Link>
-              </li>
-              <li className="nav__item">
-                <Link
-                  href="./form.html"
-                  className="nav__link hover:text-green-500 hover:font-bold"
-                >
-                  Feedback
-                </Link>
-              </li>
-              <li className="nav__item">
-                <Link
-                  href="./media.html"
-                  className="nav__link hover:text-green-500 hover:font-bold"
-                >
-                  Community
-                </Link>
-              </li>
-              <li className="nav__item">
-                <Link
-                  href="#"
-                  className="nav__link hover:text-green-500 hover:font-bold"
-                >
-                  Our Team
-                </Link>
-              </li>
+              {options.options.map((option, key) => {
+                return (
+                  <li key={key} className="nav__item">
+                    <Link
+                      href={option.link}
+                      className="nav__link hover:text-green-500 hover:font-bold"
+                    >
+                      {option.name}
+                    </Link>
+                  </li>
+                );
+              })}
             </ul>
 
             <div
