@@ -10,32 +10,39 @@ export const userOption = [
 
 export const FEATURES = [
   {
-    title: "Real maps can be offline",
-    icon: "/logo.png",
+    title: "Create an account/Login",
+    icon: "/number-1.png",
     variant: "green",
     description:
-      "We provide a solution for you to be able to use our application when climbing, yes offline maps you can use at any time there is no signal at the location",
+      "Sign up by furnishing essential details such as name and contact number. Existing users can log in to continue.",
   },
   {
-    title: "Set an adventure schedule",
-    icon: "/logo.png",
+    title: "Book Appointment for FIR",
+    icon: "/number-2.png",
     variant: "green",
     description:
-      "Schedule an adventure with friends. On holidays, there are many interesting offers from Hilink. That way, there's no more discussion",
+      "Choose your police station, and effortlessly schedule an appointment by selecting your preferred date and time for FIR registration.",
   },
   {
-    title: "Technology using augment reality",
-    icon: "/logo.png",
+    title: "Check your Appointment Status",
+    icon: "/number-3.png",
     variant: "green",
     description:
-      "Technology uses augmented reality as a guide to your hiking trail in the forest to the top of the mountain. Already supported by the latest technology without an internet connection",
+      "Effortlessly check the status of your appointment confirmation on the website for a seamless experience.",
   },
   {
-    title: "Many new locations every month",
-    icon: "/logo.png",
+    title: "Visit the police station",
+    icon: "/number-4.png",
     variant: "orange",
     description:
-      "Lots of new locations every month, because we have a worldwide community of climbers who share their best experiences with climbing",
+      "Secure a prompt and efficient FIR registration by visiting the police station with a confirmed appointment slot.",
+  },
+  {
+    title: "Provide Feedback",
+    icon: "/number-5.png",
+    variant: "orange",
+    description:
+      "Share your valuable feedback on your experience through the link provided to you via SMS.",
   },
 ];
 

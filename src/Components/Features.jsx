@@ -4,13 +4,13 @@ import React from "react";
 
 const Features = () => {
   return (
-    <section className="flex-col flex-center overflow-hidden bg-feature-bg bg-center bg-no-repeat py-24">
+    <section className="flex-col flex-center overflow-hidden bg-feature-bg bg-center bg-no-repeat py-8 md:py-24 m-8">
       <div className="max-container padding-container relative w-full flex justify-end">
         <div className="flex flex-1 lg:min-h-[900px]">
           <Image
-            src="/logo.png"
+            src="/Questions-pana.png"
             alt="phone"
-            width={440}
+            width={620}
             height={1000}
             className="feature-phone"
           />
@@ -19,7 +19,7 @@ const Features = () => {
         <div className="z-20 flex w-full flex-col lg:w-[60%]">
           <div className="relative">
             <Image
-              src="/logo.png"
+              src="/creativity.png"
               alt="camp"
               width={50}
               height={50}

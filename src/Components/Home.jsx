@@ -4,7 +4,7 @@ import React from "react";
 
 const Hero = () => {
   return (
-    <section className="max-container padding-container flex flex-col gap-20 py-10 pb-32 md:gap-28 lg:py-20 xl:flex-row">
+    <section className="max-container padding-container flex flex-col gap-20 py-10 pb-32 md:gap-28 lg:py-20 xl:flex-row m-8">
       <div className="hero-map" />
 
       <div className="relative z-20 flex flex-1 flex-col xl:w-1/2">
@@ -80,12 +80,12 @@ const Hero = () => {
         </div>
       </div> */}
       <div className="relative flex flex-1 items-start">
-        <div className="relative z-20 flex w-[450px] h-[450px]flex-col gap-8 rounded-3xl bg-green-90 px-7 py-8">
+        <div className="relative z-20 flex w-[650px] h-[650px]flex-col gap-8 rounded-3xl bg-green-90 px-7 py-8">
           <Image
-            src="/decision-making.png"
+            src="/Questions-amico.png"
             alt="Decision Making"
-            width={450}
-            height={450} // Adjust the height as needed
+            width={650}
+            height={650} // Adjust the height as needed
             className="rounded-3xl"
           />
         </div>
