@@ -7,7 +7,7 @@ export function MyComponent({ triggerNextStep }) {
   const handleRating = (rate) => {
     setRating(rate);
     console.log(rating);
-    triggerNextStep({ value: "summa", trigger: "18" });
+    triggerNextStep({ value: "summa", trigger: "ab" });
   };
 
   return (

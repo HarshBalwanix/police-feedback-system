@@ -1,11 +1,3 @@
-// import React from "react";
-
-// const Smstool = () => {
-//   return <div>Smstool</div>;
-// };
-
-// export default Smstool;
-
 require("dotenv").config();
 
 const accountSid = process.env.TWILIO_ACCOUNT_SID;

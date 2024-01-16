@@ -11,13 +11,13 @@ const AdminAbilities = () => {
     <div className="container mx-auto flex items-center justify-center mb-16">
       <Tabs defaultValue="registerFIR" className="w-[500px]">
         <TabsList>
+          <TabsTrigger value="registerFIR">Register an FIR</TabsTrigger>
           <TabsTrigger value="adminrequestedAppointments">
             Requested Appointments
           </TabsTrigger>
           <TabsTrigger value="confirmedAppointments">
             Confirmed Appointments
           </TabsTrigger>
-          <TabsTrigger value="registerFIR">Register an FIR</TabsTrigger>
           <TabsTrigger value="adminregisteredFIR">Registered FIR</TabsTrigger>
           {/* <TabsTrigger value="registeredfeedbacks">Feedbacks</TabsTrigger> */}
         </TabsList>
