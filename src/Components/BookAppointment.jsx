@@ -1,8 +1,26 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import StarRating from "./StarRating";
 
-function BookAppoimtment() {
+function BookAppointment() {
+  const [selectedDate, setSelectedDate] = useState("");
+  const [selectedTime, setSelectedTime] = useState("");
+
+  const handleDateChange = (event) => {
+    setSelectedDate(event.target.value);
+  };
+
+  const handleTimeChange = (event) => {
+    setSelectedTime(event.target.value);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    console.log("Date:", selectedDate);
+    console.log("Time:", selectedTime);
+  };
+
   return (
     <>
       <main className="container mx-auto p-4">
@@ -10,7 +28,7 @@ function BookAppoimtment() {
           <div className="text-3xl font-bold mb-4 text-green-500">
             Book Appointment to Register your FIR
           </div>
-          <form className="max-w-full">
+          <form className="max-w-full" onSubmit={handleSubmit}>
             <div className="mb-4">
               <label
                 htmlFor="pinCode"
@@ -35,7 +53,6 @@ function BookAppoimtment() {
               >
                 Select your Police Station
               </label>
-              {/* Replace the input type with a dropdown for selecting the police station */}
               <select
                 className="form-select w-full bg-gray-100 p-1"
                 id="policeStation"
@@ -43,25 +60,43 @@ function BookAppoimtment() {
                 required
                 aria-required="true"
               >
-                {/* Add options for different police stations */}
                 <option value="policeStation1">Police Station 1</option>
                 <option value="policeStation2">Police Station 2</option>
-                {/* Add more options as needed */}
               </select>
             </div>
 
             <div className="mb-4">
               <label
-                htmlFor="dateTime"
+                htmlFor="date"
                 className="block text-sm font-semibold mb-2"
               >
-                Select Date and Time for Slot Booking
+                Select Date
               </label>
               <input
-                type="datetime-local" // Use datetime-local input type for selecting date and time
+                type="date"
                 className="form-input w-full under-label bg-gray-100 p-1"
-                id="dateTime"
-                name="dateTime"
+                id="date"
+                name="date"
+                value={selectedDate}
+                onChange={handleDateChange}
+                required
+              />
+            </div>
+
+            <div className="mb-4">
+              <label
+                htmlFor="time"
+                className="block text-sm font-semibold mb-2"
+              >
+                Select Time
+              </label>
+              <input
+                type="time"
+                className="form-input w-full under-label bg-gray-100 p-1"
+                id="time"
+                name="time"
+                value={selectedTime}
+                onChange={handleTimeChange}
                 required
               />
             </div>
@@ -81,4 +116,4 @@ function BookAppoimtment() {
   );
 }
 
-export default BookAppoimtment;
+export default BookAppointment;
