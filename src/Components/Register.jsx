@@ -27,11 +27,47 @@ import { useState, useEffect } from "react";
 //   }, [auth, router]);
 
 const Register = () => {
+  const apiUrl = process.env.API;
+  console.log(apiUrl);
+
   const [phoneNumber, setPhoneNumber] = useState("");
   const [otp, setOtp] = useState("");
   const [confirmationResult, setConfirmationResult] = useState(null);
   const [otpSent, setOtpSent] = useState(false);
+  const [name, setName] = useState("");
+  const [aadhar, setAadhar] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
+  const handleFormSubmit = async (e) => {
+    e.preventDefault();
+
+    const formData = {
+      name,
+      adharNumber: aadhar,
+      email,
+      phoneNo: phoneNumber,
+      password,
+    };
+    console.log(formData);
+    try {
+      const response = await fetch("http://localhost:3005/auth/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        router.push("/login");
+      } else {
+        alert("Registration failed");
+      }
+    } catch (error) {
+      console.error("Error during registration:", error);
+    }
+  };
   const auth = getAuth(app);
   const router = useRouter();
 
@@ -62,7 +98,7 @@ const Register = () => {
   const handleSendOtp = async (e) => {
     try {
       e.preventDefault();
-      const formattedPhoneNumber = `+${phoneNumber.replace(/\D/g, "")}`;
+      const formattedPhoneNumber = `+91${phoneNumber.replace(/\D/g, "")}`;
       console.log(formattedPhoneNumber);
       console.log(auth);
       const confirmation = await signInWithPhoneNumber(
@@ -84,7 +120,7 @@ const Register = () => {
     try {
       await confirmationResult.confirm(otp);
       setOtp("");
-      router.push("/dashboard");
+      // router.push("/dashboard");
     } catch (error) {
       console.error(error);
     }
@@ -112,6 +148,21 @@ const Register = () => {
                   type="name"
                   name="name"
                   placeholder="AADHAR Name"
+                  onChange={(e) => {
+                    setName(e.target.value);
+                  }}
+                  className="bg-gray-100 outline-none text-sm flex-1"
+                ></input>
+              </div>
+              <div className="bg-gray-100 w-72 p-2 flex items-center mb-3">
+                <RiInputMethodLine className="text-gray-400 m-2" />
+                <input
+                  type="text"
+                  name="aadhar"
+                  placeholder="12 digits AADHAR Number "
+                  onChange={(e) => {
+                    setAadhar(e.target.value);
+                  }}
                   className="bg-gray-100 outline-none text-sm flex-1"
                 ></input>
               </div>
@@ -121,6 +172,9 @@ const Register = () => {
                   type="email"
                   name="email"
                   placeholder="Email"
+                  onChange={(e) => {
+                    setEmail(e.target.value);
+                  }}
                   className="bg-gray-100 outline-none text-sm flex-1"
                 ></input>
               </div>
@@ -152,27 +206,23 @@ const Register = () => {
                   className="bg-gray-100 outline-none text-sm flex-1"
                 />
               </div>
-              <div className="bg-gray-100 w-72 p-2 flex items-center mb-3">
-                <RiInputMethodLine className="text-gray-400 m-2" />
-                <input
-                  type="text"
-                  name="aadhar"
-                  placeholder="16 digits AADHAR Number "
-                  className="bg-gray-100 outline-none text-sm flex-1"
-                ></input>
-              </div>
+
               <div className="bg-gray-100 w-72 p-2 flex items-center mb-3">
                 <MdLockOutline className="text-gray-400 m-2" />
                 <input
                   type="password"
                   name="password"
                   placeholder="Password"
+                  onChange={(e) => {
+                    setPassword(e.target.value);
+                  }}
                   className="bg-gray-100 outline-none text-sm flex-1"
                 ></input>
               </div>
 
               <Link
                 href={"#"}
+                onClick={handleFormSubmit}
                 className="border-2 border-green-500 text-green-500 rounded-full px-12 py-2 inline-block font-semibold hover:bg-green-500 hover:text-white "
               >
                 Register
@@ -185,7 +235,7 @@ const Register = () => {
             <div className="border-2 w-12 border-white inline-block mb-2 ml-20"></div>
             <p className="mb-10">Already have an account?</p>
             <Link
-              href={"/login"}
+              href={"/login/user"}
               className="border-2 border-white rounded-full px-12 py-2 inline-block font-semibold hover:bg-white hover:text-green-500 ml-10"
             >
               Log in

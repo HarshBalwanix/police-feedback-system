@@ -1,18 +1,19 @@
+// AdminLogin.js
 "use client";
 import React, { useState } from "react";
 import { FaEnvelope } from "react-icons/fa";
 import { MdLockOutline } from "react-icons/md";
 import Link from "next/link";
 
-const Login = () => {
+const AdminLogin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleLogin = async (e) => {
+  const handleAdminLogin = async (e) => {
     e.preventDefault();
 
     try {
-      const response = await fetch("http://localhost:3005/auth/login", {
+      const response = await fetch("http://localhost:3005/auth/admin/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -26,17 +27,15 @@ const Login = () => {
       const data = await response.json();
 
       if (response.ok) {
-        // Login successful, save the token to local storage
+        // Admin login successful, perform actions if needed
+        console.log("Admin login successful!");
         localStorage.setItem("token", data.token);
-
-        // Redirect or perform any other necessary action after login
-        console.log("Login successful!");
       } else {
-        // Handle login error
-        console.error("Login failed:", data.message);
+        // Handle admin login error
+        console.error("Admin login failed:", data.message);
       }
     } catch (error) {
-      console.error("Login error:", error.message);
+      console.error("Admin login error:", error.message);
     }
   };
 
@@ -49,8 +48,8 @@ const Login = () => {
             System
           </div>
           <div className="py-10">
-            <h2 className="text-3xl font-bold text-green-500 mb-2 lg:ml-20">
-              Login to your Account
+            <h2 className="text-3xl font-bold text-green-500 mb-2 md:pl-16 p-0 lg:ml-20">
+              Admin Login
             </h2>
             <div className="border-2 w-12 border-green-500 inline-block mb-2 lg:ml-48"></div>
           </div>
@@ -77,7 +76,7 @@ const Login = () => {
             </div>
 
             <button
-              onClick={handleLogin}
+              onClick={handleAdminLogin}
               className="border-2 border-green-500 text-green-500 rounded-full px-8 py-2 inline-block font-semibold hover:bg-green-500 hover:text-white"
             >
               Log in
@@ -86,13 +85,13 @@ const Login = () => {
         </div>
 
         <div className="lg:w-2/5 bg-green-500 text-white rounded-tr-2xl rounded-br-2xl py-10 lg:py-36 px-6 lg:px-12 mt-10 lg:mt-0">
-          <h2 className="text-3xl font-bold mb-2">Hello, Citizen!!</h2>
+          <h2 className="text-3xl font-bold mb-2">Hello, Officer!!</h2>
           <div className="border-2 w-12 border-white inline-block mb-2 lg:ml-20"></div>
           <p className="mb-5 lg:mb-10">
-            Help us improve, by providing feedback!!
+            Join us in making a difference! Create a new account.
           </p>
           <Link
-            href={"/register/user"}
+            href={"/register/police"}
             className="border-2 border-white rounded-full px-8 py-2 inline-block font-semibold hover:bg-white hover:text-green-500"
           >
             Sign Up
@@ -103,4 +102,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default AdminLogin;
