@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { FaEnvelope } from "react-icons/fa";
 import { MdLockOutline } from "react-icons/md";
+import jwt from "jsonwebtoken"; // Import jsonwebtoken library
 import Link from "next/link";
 
 const Login = () => {
@@ -12,7 +13,7 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch("http://localhost:3005/auth/login", {
+      const response = await fetch("http://192.168.232.97:3005/auth/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -29,8 +30,11 @@ const Login = () => {
         // Login successful, save the token to local storage
         localStorage.setItem("token", data.token);
 
-        // Redirect or perform any other necessary action after login
-        console.log("Login successful!");
+        // Decode the token
+        const decodedToken = jwt.decode(data.token);
+        console.log("Decoded Token:", decodedToken);
+
+        // Continue with other actions...
       } else {
         // Handle login error
         console.error("Login failed:", data.message);
