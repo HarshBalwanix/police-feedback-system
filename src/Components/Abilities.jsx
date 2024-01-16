@@ -6,8 +6,8 @@ import RegisteredFIR from "./RegisteredFIR";
 
 const Abilities = () => {
   return (
-    <div>
-      <Tabs defaultValue="account" className="w-[400px]">
+    <div className="container mx-auto flex items-center justify-center mb-16">
+      <Tabs defaultValue="bookAppointment" className="w-[400px]">
         <TabsList>
           <TabsTrigger value="bookAppointment">Book Appointment</TabsTrigger>
           <TabsTrigger value="appointmentStatus">
