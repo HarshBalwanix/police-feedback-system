@@ -1,4 +1,3 @@
-//Translator.mjs
 import React from "react";
 import translate from "translate";
 

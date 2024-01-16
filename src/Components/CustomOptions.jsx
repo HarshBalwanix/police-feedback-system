@@ -7,7 +7,6 @@ const CustomOptions = ({ lang, options, triggerNextStep }) => {
   const [translatedOptions, setTranslatedOptions] = useState([]);
 
   useEffect(() => {
-    // Function to translate the options
     const translateOptions = async () => {
       const translatedOptions = await Promise.all(
         options.map(async (option) => {

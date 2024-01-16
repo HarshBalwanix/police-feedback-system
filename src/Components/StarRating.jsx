@@ -8,12 +8,10 @@ const StarRating = ({ onChange }) => {
   };
 
   const handleLeave = () => {
-    // Reset the rating when leaving the container
     setRating(0);
   };
 
   const handleClick = (selectedRating) => {
-    // Save the rating immediately on click
     setRating(selectedRating);
     onChange(selectedRating);
   };
