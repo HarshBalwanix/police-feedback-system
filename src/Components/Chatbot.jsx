@@ -10,11 +10,24 @@ const Chatbot = () => {
     width: "500px",
   };
 
+  const customStyles = {
+    botMessageBox: {
+      backgroundColor: "#", // Set the background color for bot messages
+    },
+    userMessageBox: {
+      backgroundColor: "#21C45D", // Set the background color for user messages
+    },
+    chatButton: {
+      backgroundColor: "#21C45D", // Set the background color for chat buttons
+    },
+  };
+
   return (
     <div>
       <ChatBot
         recognitionEnable={true}
         headerTitle="AutoFeedback Bot"
+        style={customStyles}
         steps={[
           {
             id: "start",
