@@ -1,6 +1,5 @@
 "use client";
 import React, { useState } from "react";
-import StarRating from "./StarRating";
 
 function BookAppointment() {
   const [selectedDate, setSelectedDate] = useState("");
