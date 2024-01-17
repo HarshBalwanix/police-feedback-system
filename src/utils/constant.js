@@ -54,3 +54,8 @@ export const FEATURES = [
 //   //   feedbacks,
 //   //   community,
 // };
+
+export const LANG_DROPDOWN = [
+  { id: 1, value: "en", label: "English" },
+  { id: 2, value: "hi", label: "Hindi" },
+];
